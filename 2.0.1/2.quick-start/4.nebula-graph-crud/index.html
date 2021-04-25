@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/2.quick-start/4.nebula-graph-crud/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.2" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.3" name="generator"/>
 <title>Nebula Graph常用语法（CRUD） - Nebula Graph Database 内核手册</title>
-<link href="../../assets/stylesheets/main.6f955dcd.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.e35208c4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1515,11 +1515,46 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10">
+        生态工具
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="生态工具" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          生态工具
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../16.eco-tools/1.nebula-exchange/">
+        Nebula Exchange
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../16.eco-tools/2.nebula-importer/">
+        Nebula Importer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../16.eco-tools/3.nebula-spark-connector/">
+        Nebula Spark Connector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../16.eco-tools/4.nebula-flink-connector/">
+        Nebula Flink Connector
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
         社区贡献
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_10">
+<label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
           社区贡献
         </label>
@@ -1737,7 +1772,7 @@
 <p>本文介绍Nebula Graph基础操作的语法。</p>
 <h2 id="schema">图空间和Schema<a class="headerlink" href="#schema" title="Permanent link">¶</a></h2>
 <p>一个Nebula Graph实例由一个或多个图空间组成。每个图空间都是物理隔离的，您可以在同一个实例中使用不同的图空间存储不同的数据集。</p>
-<p><img alt="Nebula Graph and graph spaces" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/dataset-for-crud.png"/></p>
+<p><img alt="Nebula Graph and graph spaces" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/nebula-graph-instance-and-graph-spaces.png"/></p>
 <p>为了在图空间中插入数据，需要为图数据库定义一个Schema。Nebula Graph的Schema是由如下几部分组成。</p>
 <table>
 <thead>
@@ -1767,7 +1802,7 @@
 </table>
 <p>更多信息，请参见<a href="../../1.introduction/2.data-model/">数据结构</a>。</p>
 <p>本文将使用下图的数据集演示基础操作的语法。</p>
-<p><img alt="The demo dataset" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/demo-dataset-for-quick-start.png"/></p>
+<p><img alt="The demo dataset" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/dataset-for-crud.png"/></p>
 <h2 id="nebula_graph">检查Nebula Graph集群的机器状态<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
 <p>首先建议您检查机器状态，确保所有的Storage服务连接到了Meta服务。执行命令<code>SHOW HOSTS</code>查看机器状态。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
@@ -1967,7 +2002,7 @@ Wed, 24 Feb 2021 03:48:16 EST
 <ul>
 <li>插入边<div class="highlight"><pre><span></span><code>INSERT EDGE &lt;edge_type&gt; (&lt;property_name&gt;[, &lt;property_name&gt;...])
 {VALUES | VALUE} &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : (&lt;property_value&gt;[, &lt;property_value&gt;...])
-[, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt; : (&lt;property_name&gt;[, &lt;property_name&gt;...]), ...];
+[, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : (&lt;property_name&gt;[, &lt;property_name&gt;...]), ...];
 </code></pre></div>
 </li>
 </ul>
@@ -2359,12 +2394,15 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月15日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
 </small>
 </div>
 </article>
 </div>
 </div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+</a>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
@@ -2419,7 +2457,7 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
 <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
 <script src="../../js/version-select.js"></script>
 </body>
