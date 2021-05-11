@@ -409,11 +409,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../6.useful-links/">
-        常用链接
-      </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -2162,7 +2157,7 @@ Got 1 rows (time spent 5055/8203 us)
 <td align="left">表示边的起点。</td>
 </tr>
 <tr>
-<td align="left"><code>\|</code></td>
+<td align="left"><code>|</code></td>
 <td align="left">组合多个查询的管道符，将前一个查询的结果集用于后一个查询。</td>
 </tr>
 <tr>
@@ -2236,20 +2231,19 @@ SET &lt;properties to be updated&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns
 </ul>
 <h3 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <ul>
-<li>
-<p>用<code>UPDATE</code>修改VID为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。</p>
-<p>```ngql
-  nebula&gt; UPDATE VERTEX "player100" SET player.name = "Tim";
-  Execution succeeded (time spent 3483/3914 us)</p>
-<p>Wed, 21 Oct 2020 10:53:14 UTC</p>
-<p>nebula&gt; FETCH PROP ON player "player100";
-  +---------------------------------------------+
-  | vertices_                                   |
-  +---------------------------------------------+
-  | ("player100" :player{age: 42, name: "Tim"}) |
-  +---------------------------------------------+
-  Got 1 rows (time spent 2463/3042 us)
-  ```</p>
+<li>用<code>UPDATE</code>修改VID为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX "player100" SET player.name = "Tim";
+Execution succeeded (time spent 3483/3914 us)
+
+Wed, 21 Oct 2020 10:53:14 UTC
+
+nebula&gt; FETCH PROP ON player "player100";
++---------------------------------------------+
+| vertices_                                   |
++---------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim"}) |
++---------------------------------------------+
+Got 1 rows (time spent 2463/3042 us)
+</code></pre></div>
 </li>
 </ul>
 <ul>
@@ -2378,7 +2372,7 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
 </small>
 </div>
 </article>
@@ -2403,13 +2397,13 @@ Got 1 rows (time spent 5132/6246 us)
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../6.useful-links/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../../3.ngql-guide/1.nGQL-overview/1.overview/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              常用链接
+              Nebula Graph查询语言（nGQL）
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2444,5 +2438,8 @@ Got 1 rows (time spent 5132/6246 us)
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
 <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../js/version-select.js"></script>
+<script src="../../js/config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
