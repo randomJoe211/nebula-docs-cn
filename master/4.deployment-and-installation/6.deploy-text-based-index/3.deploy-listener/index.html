@@ -9,7 +9,7 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
 <title>部署Raft listener - Nebula Graph Database 手册</title>
 <link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
@@ -35,6 +35,11 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
+<div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
+    该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
+    <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
+    <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
+</div>
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
@@ -98,6 +103,13 @@
 </div>
 </nav>
 </header>
+<script>
+  var symbol = document.getElementById("delete");
+  var banner = document.getElementById("banner");
+  symbol.addEventListener("click",function(){
+    banner.style.display = "none";
+  })
+</script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -1977,7 +1989,84 @@
 </ul>
 <h2 id="_3">部署流程<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <h3 id="listener">第一步：准备listener的配置文件<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
-<p>你必须在各需要部署 listener 的机器上准备对应的配置文件。文件名称必须为<code>nebula-storaged-listener.conf</code>。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
+<p>用户必须在需要部署listener的机器上准备对应的配置文件。文件名称必须为<code>nebula-storaged-listener.conf</code>。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
+<p>大部分配置与<a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage服务</a>的配置文件相同，本文仅介绍差异部分。</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">预设值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>daemonize</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">是否启动守护进程。</td>
+</tr>
+<tr>
+<td align="left"><code>pid_file</code></td>
+<td align="left"><code>pids_listener/nebula-storaged.pid</code></td>
+<td align="left">记录进程ID的文件。</td>
+</tr>
+<tr>
+<td align="left"><code>meta_server_addrs</code></td>
+<td align="left">-</td>
+<td align="left">全部Meta服务的IP地址和端口。多个Meta服务用英文逗号（,）分隔。</td>
+</tr>
+<tr>
+<td align="left"><code>local_ip</code></td>
+<td align="left">-</td>
+<td align="left">listener服务的本地IP地址。</td>
+</tr>
+<tr>
+<td align="left"><code>port</code></td>
+<td align="left">-</td>
+<td align="left">listener服务的RPC守护进程监听端口。</td>
+</tr>
+<tr>
+<td align="left"><code>heartbeat_interval_secs</code></td>
+<td align="left"><code>10</code></td>
+<td align="left">Meta服务的心跳间隔。单位：秒（s）。</td>
+</tr>
+<tr>
+<td align="left"><code>listener_path</code></td>
+<td align="left"><code>data/listener</code></td>
+<td align="left">listener的WAL目录。只允许使用一个目录。</td>
+</tr>
+<tr>
+<td align="left"><code>data_path</code></td>
+<td align="left"><code>data</code></td>
+<td align="left">出于兼容性考虑，可以忽略此参数。填充一个默认值<code>data</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>part_man_type</code></td>
+<td align="left"><code>memory</code></td>
+<td align="left">部件管理器类型，可选值为<code>memory</code>和<code>meta</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>rocksdb_batch_size</code></td>
+<td align="left"><code>4096</code></td>
+<td align="left">批处理操作的默认保留字节。</td>
+</tr>
+<tr>
+<td align="left"><code>rocksdb_block_cache</code></td>
+<td align="left"><code>4</code></td>
+<td align="left">BlockBasedTable的默认块缓存大小。单位：兆字节（MB）。</td>
+</tr>
+<tr>
+<td align="left"><code>engine_type</code></td>
+<td align="left"><code>rocksdb</code></td>
+<td align="left">存储引擎类型，例如<code>rocksdb</code>、<code>memory</code>等。</td>
+</tr>
+<tr>
+<td align="left"><code>part_type</code></td>
+<td align="left"><code>simple</code></td>
+<td align="left">部件类型，例如<code>simple</code>、<code>consensus</code>等。</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在配置文件中请使用真实的（listener机器）IP地址替换<code>127.0.0.1</code>。</p>
@@ -2027,7 +2116,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
@@ -2090,8 +2179,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

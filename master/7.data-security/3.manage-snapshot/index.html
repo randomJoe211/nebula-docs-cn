@@ -9,7 +9,7 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/7.data-security/3.manage-snapshot/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
 <title>管理快照 - Nebula Graph Database 手册</title>
 <link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
@@ -35,6 +35,11 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
+<div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
+    该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
+    <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
+    <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
+</div>
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
@@ -98,6 +103,13 @@
 </div>
 </nav>
 </header>
+<script>
+  var symbol = document.getElementById("delete");
+  var banner = document.getElementById("banner");
+  symbol.addEventListener("click",function(){
+    banner.style.display = "none";
+  })
+</script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -1909,10 +1921,10 @@
 <li>系统结构发生变化后，建议立刻创建快照，例如在<code>add host</code>、<code>drop host</code>、<code>create space</code>、<code>drop space</code>、<code>balance</code>等操作之后。</li>
 </ul>
 <ul>
-<li>暂不支持自动回收创建失败的快照垃圾文件，需要手动删除。</li>
+<li>不支持自动回收创建失败的快照垃圾文件，需要手动删除。</li>
 </ul>
 <ul>
-<li>暂不支持指定快照保存路径，默认路径为<code>/usr/local/nebula/data</code>。</li>
+<li>不支持指定快照保存路径，默认路径为<code>/usr/local/nebula/data</code>。</li>
 </ul>
 <h2 id="_4">快照路径<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>Nebula Graph创建的快照以目录的形式存储，例如<code>SNAPSHOT_2021_03_09_08_43_12</code>，后缀<code>2021_03_09_08_43_12</code>根据创建时间（UTC）自动生成。</p>
@@ -1925,7 +1937,7 @@
 ...
 </code></pre></div>
 <h2 id="_5">创建快照<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>命令<code>CREATE SNAPSHOT</code>可以创建集群当前时间点的快照。暂时只支持创建所有图空间的快照，不支持创建指定图空间的快照。</p>
+<p>命令<code>CREATE SNAPSHOT</code>可以创建集群当前时间点的快照。只支持创建所有图空间的快照，不支持创建指定图空间的快照。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果快照创建失败，请<a href="#_7">删除快照</a>重新创建。</p>
@@ -1943,12 +1955,29 @@
 | "SNAPSHOT_2021_03_09_09_10_52" | "VALID" | "127.0.0.1:9779" |
 +--------------------------------+---------+------------------+
 </code></pre></div>
-<p>参数说明如下。
-|参数|说明|
-|:---|:---|
-|<code>Name</code>|快照名称，前缀为<code>SNAPSHOT</code>，表示该文件为快照文件，后缀为快照创建的时间点（UTC时间）。|
-|<code>Status</code>|快照状态。<code>VALID</code>表示快照有效，<code>INVALID</code>表示快照无效。|
-|<code>Hosts</code>|创建快照时所有Storage服务器的IP地址和端口。|</p>
+<p>参数说明如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Name</code></td>
+<td align="left">快照名称，前缀为<code>SNAPSHOT</code>，表示该文件为快照文件，后缀为快照创建的时间点（UTC时间）。</td>
+</tr>
+<tr>
+<td align="left"><code>Status</code></td>
+<td align="left">快照状态。<code>VALID</code>表示快照有效，<code>INVALID</code>表示快照无效。</td>
+</tr>
+<tr>
+<td align="left"><code>Hosts</code></td>
+<td align="left">创建快照时所有Storage服务器的IP地址和端口。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_7">删除快照<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>命令<code>DROP SNAPSHOT</code>可以删除指定的快照，语法为：</p>
 <div class="highlight"><pre><span></span><code>DROP SNAPSHOT &lt;snapshot_name&gt;;
@@ -1963,7 +1992,7 @@ nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 </code></pre></div>
 <h2 id="_8">恢复快照<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<p>当前暂未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
+<p>当前未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
 <ol>
 <li>
 <p>创建快照后，会在Meta服务器和Storage服务器的安装目录内生成<code>checkpoints</code>目录，保存创建的快照。以本文为例，当存在2个图空间时，创建的快照分别保存在<code>/usr/local/nebula/data/meta/nebula/0/checkpoints</code>、<code>/usr/local/nebula/data/storage/nebula/3/checkpoints</code>和<code>/usr/local/nebula/data/storage/nebula/4/checkpoints</code>中。</p>
@@ -1985,7 +2014,7 @@ SNAPSHOT_2021_03_09_09_10_52
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
@@ -2048,8 +2077,8 @@ SNAPSHOT_2021_03_09_09_10_52
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
