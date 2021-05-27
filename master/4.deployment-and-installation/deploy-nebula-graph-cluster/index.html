@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../stylesheets/logo.css" rel="stylesheet"/>
+<link href="../../stylesheets/note.css" rel="stylesheet"/>
 <link href="../../css/version-select.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
@@ -934,11 +935,6 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/14.native-index-statements/">
-        索引介绍
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../6.deploy-text-based-index/1.text-based-index-restrictions/">
         全文索引限制
       </a>
@@ -1093,33 +1089,38 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    前提条件
+    部署方案
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
+    前提条件
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
     手动部署流程
   </a>
 <nav aria-label="手动部署流程" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#nebula_graph_1">
-    安装Nebula Graph
+<a class="md-nav__link" href="#1nebula_graph">
+    1.安装Nebula Graph
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    修改配置文件
+<a class="md-nav__link" href="#2">
+    2.修改配置文件
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    启动集群
+<a class="md-nav__link" href="#3">
+    3.启动集群
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    检查集群
+<a class="md-nav__link" href="#4">
+    4.检查集群
   </a>
 </li>
 </ul>
@@ -1328,14 +1329,19 @@
           Nebula Graph Studio
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-release-note/">
+        Studio版本更新说明
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" id="__nav_10_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_1">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" id="__nav_10_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_2">
         认识 Nebula Graph Studio
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="认识 Nebula Graph Studio" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_1">
+<label class="md-nav__title" for="__nav_10_2">
 <span class="md-nav__icon md-icon"></span>
           认识 Nebula Graph Studio
         </label>
@@ -1369,13 +1375,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" id="__nav_10_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_2">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" id="__nav_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_3">
         安装与登录
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="安装与登录" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_2">
+<label class="md-nav__title" for="__nav_10_3">
 <span class="md-nav__icon md-icon"></span>
           安装与登录
         </label>
@@ -1399,13 +1405,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" id="__nav_10_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" id="__nav_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4">
         快速开始
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="快速开始" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_3">
+<label class="md-nav__title" for="__nav_10_4">
 <span class="md-nav__icon md-icon"></span>
           快速开始
         </label>
@@ -1434,25 +1440,25 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" id="__nav_10_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" id="__nav_10_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_5">
         操作指南
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="操作指南" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_4">
+<label class="md-nav__title" for="__nav_10_5">
 <span class="md-nav__icon md-icon"></span>
           操作指南
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_1" id="__nav_10_4_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_4_1">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5_1" id="__nav_10_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_5_1">
         管理 Schema
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="管理 Schema" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_10_4_1">
+<label class="md-nav__title" for="__nav_10_5_1">
 <span class="md-nav__icon md-icon"></span>
           管理 Schema
         </label>
@@ -1481,13 +1487,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_2" id="__nav_10_4_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_4_2">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5_2" id="__nav_10_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_5_2">
         使用控制台
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="使用控制台" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_10_4_2">
+<label class="md-nav__title" for="__nav_10_5_2">
 <span class="md-nav__icon md-icon"></span>
           使用控制台
         </label>
@@ -1514,13 +1520,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" id="__nav_10_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_10_5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" id="__nav_10_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_6">
         故障排查
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="故障排查" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_5">
+<label class="md-nav__title" for="__nav_10_6">
 <span class="md-nav__icon md-icon"></span>
           故障排查
         </label>
@@ -1537,7 +1543,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/troubleshooting/st-ug-faq/">
-        常见问题
+        Studio 常见问题
       </a>
 </li>
 </ul>
@@ -1549,23 +1555,63 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
 <label class="md-nav__link" for="__nav_11">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/use-importer/">
+        使用Nebula Importer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/config-with-header/">
+        有表头配置说明
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/config-without-header/">
+        无表头配置说明
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-spark-connector/">
+        Nebula Spark Connector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-flink-connector/">
+        Nebula Flink Connector
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
         Nebula Exchange
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Exchange" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_11">
+<label class="md-nav__title" for="__nav_14">
 <span class="md-nav__icon md-icon"></span>
           Nebula Exchange
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" id="__nav_11_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_11_1">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_1" id="__nav_14_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_1">
         认识Nebula Exchange
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="认识Nebula Exchange" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_11_1">
+<label class="md-nav__title" for="__nav_14_1">
 <span class="md-nav__icon md-icon"></span>
           认识Nebula Exchange
         </label>
@@ -1589,13 +1635,13 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" id="__nav_11_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_11_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_3" id="__nav_14_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_3">
         参数说明
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="参数说明" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_11_3">
+<label class="md-nav__title" for="__nav_14_3">
 <span class="md-nav__icon md-icon"></span>
           参数说明
         </label>
@@ -1614,13 +1660,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" id="__nav_11_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_11_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_4" id="__nav_14_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_4">
         使用Nebula Exchange
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="使用Nebula Exchange" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_11_4">
+<label class="md-nav__title" for="__nav_14_4">
 <span class="md-nav__icon md-icon"></span>
           使用Nebula Exchange
         </label>
@@ -1680,51 +1726,11 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-exchange/ex-ug-FAQ/">
-        常见问题FAQ
+        Exchange 常见问题
       </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
-<label class="md-nav__link" for="__nav_12">
-        Nebula Importer
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Nebula Importer" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_12">
-<span class="md-nav__icon md-icon"></span>
-          Nebula Importer
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../nebula-importer/use-importer/">
-        使用Nebula Importer
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../nebula-importer/config-with-header/">
-        有表头配置说明
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../nebula-importer/config-without-header/">
-        无表头配置说明
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../nebula-spark-connector/">
-        Nebula Spark Connector
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../nebula-flink-connector/">
-        Nebula Flink Connector
-      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-algorithm/">
@@ -1734,58 +1740,18 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
 <label class="md-nav__link" for="__nav_16">
-        社区贡献
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_16">
-<span class="md-nav__icon md-icon"></span>
-          社区贡献
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
-        如何贡献
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" id="__nav_17" type="checkbox"/>
-<label class="md-nav__link" for="__nav_17">
-        FAQ
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="FAQ" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_17">
-<span class="md-nav__icon md-icon"></span>
-          FAQ
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../19.FAQ/0.FAQ/">
-        FAQ
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" id="__nav_18" type="checkbox"/>
-<label class="md-nav__link" for="__nav_18">
         附录
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="附录" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_18">
+<label class="md-nav__title" for="__nav_16">
 <span class="md-nav__icon md-icon"></span>
           附录
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/0.vid/">
-        VID
+<a class="md-nav__link" href="../../20.appendix/0.FAQ/">
+        Nebula Graph 常见问题
       </a>
 </li>
 <li class="md-nav__item">
@@ -1814,6 +1780,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/7.vid/">
+        VID
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../20.appendix/comments/">
         注释
       </a>
@@ -1832,8 +1803,8 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="https://docs.nebula-graph.io/">
-        English
+<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
+        如何贡献
       </a>
 </li>
 <li class="md-nav__item">
@@ -1857,33 +1828,38 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    前提条件
+    部署方案
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
+    前提条件
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
     手动部署流程
   </a>
 <nav aria-label="手动部署流程" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#nebula_graph_1">
-    安装Nebula Graph
+<a class="md-nav__link" href="#1nebula_graph">
+    1.安装Nebula Graph
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    修改配置文件
+<a class="md-nav__link" href="#2">
+    2.修改配置文件
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    启动集群
+<a class="md-nav__link" href="#3">
+    3.启动集群
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    检查集群
+<a class="md-nav__link" href="#4">
+    4.检查集群
   </a>
 </li>
 </ul>
@@ -1901,20 +1877,103 @@
 </a>
 <h1 id="nebula_graph">部署Nebula Graph集群<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h1>
 <p>Nebula Graph不提供官方的集群部署工具，需要手动部署，下文将介绍手动部署的简单流程。</p>
-<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>准备用于部署集群的服务器。</p>
-<h2 id="_2">手动部署流程<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="nebula_graph_1">安装Nebula Graph<a class="headerlink" href="#nebula_graph_1" title="Permanent link">¶</a></h3>
-<p>在集群的每一台服务器上安装Nebula Graph。安装方式请参见：</p>
+<h2 id="_1">部署方案<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">机器名称</th>
+<th align="left">IP地址</th>
+<th align="left">graphd进程数量</th>
+<th align="left">storaged进程数量</th>
+<th align="left">metad进程数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left">192.168.10.111</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left">192.168.10.112</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">C</td>
+<td align="left">192.168.10.113</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left">192.168.10.114</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">E</td>
+<td align="left">192.168.10.115</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>准备5台用于部署集群的机器。</p>
+<h2 id="_3">手动部署流程<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="1nebula_graph">1.安装Nebula Graph<a class="headerlink" href="#1nebula_graph" title="Permanent link">¶</a></h3>
+<p>在集群的每一台服务器上都安装Nebula Graph，安装后暂不需要启动服务。安装方式请参见：</p>
 <ul>
 <li><a href="../2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">使用RPM或DEB安装包安装Nebula Graph</a></li>
 </ul>
 <ul>
 <li><a href="../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">编译安装Nebula Graph</a></li>
 </ul>
-<h3 id="_3">修改配置文件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="2">2.修改配置文件<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
 <p>修改每个服务器上的Nebula Graph配置文件。</p>
-<p>Nebula Graph的所有配置文件均位于安装目录的<code>etc</code>目录内，包括<code>nebula-graphd.conf</code>、<code>nebula-metad.conf</code>和<code>nebula-storaged.conf</code>，用户可以只修改对应服务的配置文件。配置文件的详细说明请参见：</p>
+<p>Nebula Graph的所有配置文件均位于安装目录的<code>etc</code>目录内，包括<code>nebula-graphd.conf</code>、<code>nebula-metad.conf</code>和<code>nebula-storaged.conf</code>，用户可以只修改所需服务的配置文件。各个机器需要修改的配置文件如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">机器名称</th>
+<th align="left">待修改配置文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left"><code>nebula-graphd.conf</code>、<code>nebula-storaged.conf</code>、<code>nebula-metad.conf</code></td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left"><code>nebula-graphd.conf</code>、<code>nebula-storaged.conf</code>、<code>nebula-metad.conf</code></td>
+</tr>
+<tr>
+<td align="left">C</td>
+<td align="left"><code>nebula-graphd.conf</code>、<code>nebula-storaged.conf</code>、<code>nebula-metad.conf</code></td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left"><code>nebula-graphd.conf</code>、<code>nebula-storaged.conf</code></td>
+</tr>
+<tr>
+<td align="left">E</td>
+<td align="left"><code>nebula-graphd.conf</code>、<code>nebula-storaged.conf</code></td>
+</tr>
+</tbody>
+</table>
+<p>用户可以参考如下配置文件的内容，仅展示集群通信的部分设置，未展示的内容为默认设置，便于用户了解集群间各个服务器的关系。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>主要修改的配置是<code>meta_server_addrs</code>，所有配置文件都需要填写所有Meta服务的IP地址和端口，同时需要修改<code>local_ip</code>为机器本身的联网IP地址。配置参数的详细说明请参见：</p>
 <ul>
 <li><a href="../../5.configurations-and-logs/1.configurations/2.meta-config/">Meta服务配置</a></li>
 </ul>
@@ -1924,18 +1983,310 @@
 <ul>
 <li><a href="../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage服务配置</a></li>
 </ul>
-<h3 id="_4">启动集群<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>启动各个服务器上的对应服务。启动Nebula Graph服务的命令如下：</p>
+</div>
+<ul>
+<li>
+<p>机器A配置</p>
+<ul>
+<li>
+<p><code>nebula-graphd.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server Addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
+<span class="c1"># Network device to listen on</span>
+--listen_netdev<span class="o">=</span>any
+<span class="c1"># Port to listen on</span>
+--port<span class="o">=</span><span class="m">9669</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-storaged.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
+<span class="c1"># Storage daemon listening port</span>
+--port<span class="o">=</span><span class="m">9779</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-metad.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-metad process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
+<span class="c1"># Meta daemon listening port</span>
+--port<span class="o">=</span><span class="m">9559</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>机器B配置</p>
+<ul>
+<li>
+<p><code>nebula-graphd.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server Addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
+<span class="c1"># Network device to listen on</span>
+--listen_netdev<span class="o">=</span>any
+<span class="c1"># Port to listen on</span>
+--port<span class="o">=</span><span class="m">9669</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-storaged.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
+<span class="c1"># Storage daemon listening port</span>
+--port<span class="o">=</span><span class="m">9779</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-metad.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-metad process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
+<span class="c1"># Meta daemon listening port</span>
+--port<span class="o">=</span><span class="m">9559</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>机器C配置</p>
+<ul>
+<li>
+<p><code>nebula-graphd.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server Addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
+<span class="c1"># Network device to listen on</span>
+--listen_netdev<span class="o">=</span>any
+<span class="c1"># Port to listen on</span>
+--port<span class="o">=</span><span class="m">9669</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-storaged.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
+<span class="c1"># Storage daemon listening port</span>
+--port<span class="o">=</span><span class="m">9779</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-metad.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-metad process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
+<span class="c1"># Meta daemon listening port</span>
+--port<span class="o">=</span><span class="m">9559</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>机器D配置</p>
+<ul>
+<li>
+<p><code>nebula-graphd.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server Addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
+<span class="c1"># Network device to listen on</span>
+--listen_netdev<span class="o">=</span>any
+<span class="c1"># Port to listen on</span>
+--port<span class="o">=</span><span class="m">9669</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-storaged.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
+<span class="c1"># Storage daemon listening port</span>
+--port<span class="o">=</span><span class="m">9779</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>机器E配置</p>
+<ul>
+<li>
+<p><code>nebula-graphd.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta Server Addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
+<span class="c1"># Network device to listen on</span>
+--listen_netdev<span class="o">=</span>any
+<span class="c1"># Port to listen on</span>
+--port<span class="o">=</span><span class="m">9669</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>nebula-storaged.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
+<span class="c1"># Comma separated Meta server addresses</span>
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
+<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
+<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
+<span class="c1"># will be accessed remotely.</span>
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
+<span class="c1"># Storage daemon listening port</span>
+--port<span class="o">=</span><span class="m">9779</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3">3.启动集群<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
+<p>依次启动各个服务器上的对应进程。说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">机器名称</th>
+<th align="left">待启动的进程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left">graphd、storaged、metad</td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left">graphd、storaged、metad</td>
+</tr>
+<tr>
+<td align="left">C</td>
+<td align="left">graphd、storaged、metad</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left">graphd、storaged</td>
+</tr>
+<tr>
+<td align="left">E</td>
+<td align="left">graphd、storaged</td>
+</tr>
+</tbody>
+</table>
+<p>启动Nebula Graph进程的命令如下：</p>
 <div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service start &lt;metad<span class="p">|</span>graphd<span class="p">|</span>storaged<span class="p">|</span>all&gt;
 </code></pre></div>
-<p><code>/usr/local/nebula</code>是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见<a href="../../2.quick-start/5.start-stop-service/">管理Nebula Graph服务</a>。</p>
-<h3 id="_5">检查集群<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>连接Graph服务，执行命令<code>SHOW HOSTS</code>检查集群状态。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>graphd、storaged和metad都启动时，可以用all代替。</li>
+</ul>
+<ul>
+<li><code>/usr/local/nebula</code>是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见<a href="../../2.quick-start/5.start-stop-service/">管理Nebula Graph服务</a>。</li>
+</ul>
+</div>
+<h3 id="4">4.检查集群<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
+<p>安装原生CLI客户端<a href="../../2.quick-start/3.connect-to-nebula-graph/#_1">Nebula Console</a>，然后连接任何一个已启动graphd进程的机器，执行命令<code>SHOW HOSTS</code>检查集群状态。例如：</p>
+<div class="highlight"><pre><span></span><code>$ ./nebula-console --addr <span class="m">192</span>.168.10.111 --port <span class="m">9669</span> -u root -p nebula
+
+<span class="m">2021</span>/05/25 <span class="m">01</span>:41:19 <span class="o">[</span>INFO<span class="o">]</span> connection pool is initialized successfully
+Welcome to Nebula Graph!
+
+&gt; SHOW HOSTS<span class="p">;</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> Host             <span class="p">|</span> Port <span class="p">|</span> Status   <span class="p">|</span> Leader count <span class="p">|</span> Leader distribution  <span class="p">|</span> Partition distribution <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"192.168.10.111"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"192.168.10.112"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"192.168.10.113"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"192.168.10.114"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"192.168.10.115"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+<span class="p">|</span> <span class="s2">"Total"</span>          <span class="p">|</span>      <span class="p">|</span>          <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>                      <span class="p">|</span>                        <span class="p">|</span>
++------------------+------+----------+--------------+----------------------+------------------------+
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>
