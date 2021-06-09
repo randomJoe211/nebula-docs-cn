@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/master/1.introduction/2.data-model/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>数据模型 - Nebula Graph Database 手册</title>
-<link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -111,6 +111,16 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
@@ -187,18 +197,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../2.1.path/">
+        路径
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../3.vid/">
         VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
+<label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -1165,7 +1180,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../5.configurations-and-logs/1.configurations/1.configurations/">
-        配置简介
+        配置管理
       </a>
 </li>
 <li class="md-nav__item">
@@ -1840,9 +1855,9 @@
 <ul>
 <li>两点之间可以有多条边。</li>
 <li>边是有方向的，不存在无向边。</li>
-<li>四元组 <code>&lt;起点VID、边类型（edgetype）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
+<li>四元组 <code>&lt;起点VID、边类型（edge type）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
 <li>一条边有且仅有一个边类型。</li>
-<li>一条边有且仅有一个 rank。其为int64, 默认为0。</li>
+<li>一条边有且仅有一个rank。其为int64, 默认为0。</li>
 </ul>
 </li>
 </ul>
@@ -1854,23 +1869,23 @@
 </ul>
 <ul>
 <li>
-<p>边类型（edgetype）</p>
+<p>边类型（edge type）</p>
 <p>边类型由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>属性（properties）</p>
-<p>属性是指以键值对（key-value）形式存储的信息。</p>
+<p>属性是指以键值对（key-value pair）形式存储的信息。</p>
 </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Tag和Edgetype的作用，类似于关系型数据库中“点表”和“边表”的表结构。</p>
+<p>Tag和Edge type的作用，类似于关系型数据库中“点表”和“边表”的表结构。</p>
 </div>
 <h2 id="_3">有向属性图<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Graph使用有向属性图模型，指点和边构成的图，这些边是有方向的，点和边都可以有属性。</p>
-<p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>like</strong>）。</p>
+<p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>follow</strong>）。</p>
 <table>
 <thead>
 <tr>
@@ -1894,13 +1909,13 @@
 <td align="left">表示球队。</td>
 </tr>
 <tr>
-<td align="left">edgetype</td>
+<td align="left">edge type</td>
 <td align="left"><strong>serve</strong></td>
 <td align="left">start_year （int） <br/> end_year （int）</td>
 <td align="left">表示球员的行为。<br/>该行为将球员和球队联系起来，方向是从球员到球队。</td>
 </tr>
 <tr>
-<td align="left">edgetype</td>
+<td align="left">edge type</td>
 <td align="left"><strong>follow</strong></td>
 <td align="left">degree（int）</td>
 <td align="left">表示球员的行为。<br/>该行为将两个球员联系起来，方向是从一个球员到另一个球员。</td>
@@ -1915,7 +1930,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月7日</span>
 </small>
 </div>
 </article>
@@ -1927,7 +1942,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../1.what-is-nebula-graph/" rel="prev">
+<a aria-label="上一页: 什么是Nebula Graph" class="md-footer__link md-footer__link--prev" href="../1.what-is-nebula-graph/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1940,13 +1955,13 @@
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../3.vid/" rel="next">
+<a aria-label="下一页: 路径" class="md-footer__link md-footer__link--next" href="../2.1.path/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              VID
+              路径
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1978,8 +1993,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

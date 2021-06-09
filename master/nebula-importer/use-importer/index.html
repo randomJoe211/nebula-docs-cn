@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/master/nebula-importer/use-importer/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>使用Nebula Importer - Nebula Graph Database 手册</title>
-<link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -111,6 +111,16 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
@@ -164,18 +174,23 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../1.introduction/2.1.path/">
+        路径
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/3.vid/">
         VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
+<label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -1142,7 +1157,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../5.configurations-and-logs/1.configurations/1.configurations/">
-        配置简介
+        配置管理
       </a>
 </li>
 <li class="md-nav__item">
@@ -2081,7 +2096,7 @@ $ go build -mod vendor cmd/
 <p>建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。</p>
 </div>
 <h2 id="_7">配置文件说明<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>Nebula Importer通过docker-compose.yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：<a href="../config-without-header/">无表头配置</a>/<a href="../config-with-header/">有表头配置</a>。下文将分类介绍配置文件内的字段。</p>
+<p>Nebula Importer通过<code>nebula-importer/examples/v2/example.yaml</code>配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：<a href="../config-without-header/">无表头配置</a>/<a href="../config-with-header/">有表头配置</a>。下文将分类介绍配置文件内的字段。</p>
 <h3 id="_8">基本配置<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <p>示例配置如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2</span>
@@ -2490,7 +2505,7 @@ $ go build -mod vendor cmd/
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
 </small>
 </div>
 </article>
@@ -2502,7 +2517,7 @@ $ go build -mod vendor cmd/
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../../nebula-studio/troubleshooting/st-ug-faq/" rel="prev">
+<a aria-label="上一页: Studio 常见问题" class="md-footer__link md-footer__link--prev" href="../../nebula-studio/troubleshooting/st-ug-faq/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -2515,7 +2530,7 @@ $ go build -mod vendor cmd/
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../config-with-header/" rel="next">
+<a aria-label="下一页: 有表头配置说明" class="md-footer__link md-footer__link--next" href="../config-with-header/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
@@ -2553,8 +2568,8 @@ $ go build -mod vendor cmd/
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

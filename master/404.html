@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="/master/master/assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="/master/master/assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="/master/master/assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="/master/master/assets/stylesheets/palette.f1a3b89f.min.css">
@@ -169,6 +169,16 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
     
     <div class="md-container" data-md-component="container">
@@ -280,6 +290,18 @@
   
   
     <li class="md-nav__item">
+      <a href="/master/master/1.introduction/2.1.path/" class="md-nav__link">
+        路径
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="/master/master/1.introduction/3.vid/" class="md-nav__link">
         VID
       </a>
@@ -295,14 +317,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
       
-      <label class="md-nav__link" for="__nav_2_4">
+      <label class="md-nav__link" for="__nav_2_5">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Nebula Graph架构" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_4">
+        <label class="md-nav__title" for="__nav_2_5">
           <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -2414,7 +2436,7 @@
   
     <li class="md-nav__item">
       <a href="/master/master/5.configurations-and-logs/1.configurations/1.configurations/" class="md-nav__link">
-        配置简介
+        配置管理
       </a>
     </li>
   
@@ -3757,8 +3779,14 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+    <h2>对不起，页面失效了……</h2>
+    
+    <p>欢迎点击<a href="javascript:history.back(-1)">原文档</a>右上角的编辑按钮修复失效链接，并成为contributor</p>
+    <p>你还可以：</p>
+    <p><a href="https://github.com/vesoft-inc/nebula-docs-cn/issues/new">提交issue反馈链接问题</a></p>
+    <p><a href="javascript:history.back(-1)">返回上一页</a></p>
+    <p><a href="/">返回文档首页</a></p>
+  
               
             </article>
           </div>
@@ -3809,10 +3837,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/master/master", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "/master/master/assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "/master/master", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "/master/master/assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
     
     
-      <script src="/master/master/assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="/master/master/assets/javascripts/bundle.76f349be.min.js"></script>
       
         <script src="/master/master/js/version-select.js"></script>
       
