@@ -89,7 +89,8 @@ nav:
         - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
         - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
         - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
-        
+        - nGQL风格指南: 3.ngql-guide/1.nGQL-overview/ngql-style-guide.md
+
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
         - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
@@ -121,7 +122,6 @@ nav:
           - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
           - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
           - Schema函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
-          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
           - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
           - count函数: 3.ngql-guide/6.functions-and-expressions/7.count.md
           - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
@@ -129,6 +129,7 @@ nav:
           - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
@@ -335,6 +336,7 @@ nav:
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
